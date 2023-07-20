@@ -1,64 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:guess_the_flag/QuizScreen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FirstScreen(),
+      home: QuizScreen(),
     );
   }
 }
 
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({Key? key}) : super(key: key);
+//QuizScreen
+//TODO: Add an image view
+//TODO: Add a random country to select
+//TODO: Add Three random image
+//TODO: Change the quiz when answered
+//TODO: Add FlutterToast to indicate when choose a correct answer
+//TODO: Add the button to move to the second screen
+//TODO: Pass the data to the result screen
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("1st Screen"),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen(
-              passedString: "Here is thepassed string",
-            ),),);
-          },
-          child: Text("Go to the 2nd Screen"),
-        ),
-      ),
-    );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({required this.passedString});
-  final String passedString;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("2nd Screen"),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text(passedString),
-        ),
-      ),
-    );
-  }
-}
